@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero-section{
+    min-height: 100vh;
+    background-image: url("https: //images.pexels.com/photos/4355346/pexels-photo-4355346.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}

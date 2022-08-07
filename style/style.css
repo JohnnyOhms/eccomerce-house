@@ -1,7 +1,23 @@
+:root {
+    --white: #fff;
+    --black: #1c2b2d;
+    --blue: #31326f;
+    --light-blue: #005490;
+    --color-primary: #9d0919;
+    --color-sec: #db6400;
+    --color-grey: #ddd;
+    --color-dark-grey: #222831;
+    --color-azure: azure;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
+    font-family: "Josefin Sans";
 }
 
 #navbar{
@@ -11,8 +27,12 @@
 }
 
 .hero-section{
-    min-height: 100vh;
-    background-color: grey;
+    height: 100vh;
+    /* min-height: calc(100vh + 2rem); */
+    background:url("/img/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
 }
 
@@ -24,22 +44,16 @@
     height: 3.5rem;
 }
 
-.icon{
-    margin-right: 2px;
+.cart-icon{
     font-size: 1.2rem;
-}
-
-.cart{
     position: relative;
     cursor: pointer;
 }
 
 .count{
+    font-weight: 600;
     position: absolute;
-    top: 7px;
-    right: 9px;
-    background-color: yellow;
-    border: 1px solid black;
-    border-radius: 40%;
-    padding: 0.3px;
+    top: -12px;
+    right: -3px;
+    color: var(--color-sec);
 }

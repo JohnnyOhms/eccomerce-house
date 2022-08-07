@@ -4,10 +4,42 @@
     box-sizing: border-box;
 }
 
+#navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
 .hero-section{
     min-height: 100vh;
-    background-image: url("https: //images.pexels.com/photos/4355346/pexels-photo-4355346.jpeg?auto=compress&cs=tinysrgb&w=600");
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
+    background-color: grey;
+    display: flex;
+}
+
+.hero{
+    margin: auto;
+}
+
+.btn-shop{
+    height: 3.5rem;
+}
+
+.icon{
+    margin-right: 2px;
+    font-size: 1.2rem;
+}
+
+.cart{
+    position: relative;
+    cursor: pointer;
+}
+
+.count{
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    background-color: yellow;
+    border: 1px solid black;
+    border-radius: 40%;
+    padding: 0.3px;
 }

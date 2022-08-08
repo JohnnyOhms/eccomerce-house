@@ -26,34 +26,85 @@ body{
     z-index: 1;
 }
 
+.cart-icon {
+    font-size: 1.2rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.count {
+    font-weight: 600;
+    position: absolute;
+    top: -12px;
+    right: -3px;
+    color: var(--color-sec);
+}
+
 .hero-section{
     height: 100vh;
-    /* min-height: calc(100vh + 2rem); */
-    background:url("/img/hero.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 100%;
+    background:url("/img/pexels-harsh-kushwaha-1689731.jpg");
+    background-position: top 10% right 10%;
+    /* background-position: center; */
     background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
+    flex-direction: column;
+}
+
+.description{
+    margin: 8rem 0 0 2rem;
+    font-family: "Satisfy";
+    color: var(--white);
+}
+
+.description h2{
+    font-size: 50px;
 }
 
 .hero{
-    margin: auto;
+    margin: 2rem 0 0 2rem;
 }
 
 .btn-shop{
     height: 3.5rem;
 }
 
-.cart-icon{
-    font-size: 1.2rem;
-    position: relative;
-    cursor: pointer;
+.featured{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 6px;
 }
 
-.count{
-    font-weight: 600;
-    position: absolute;
-    top: -12px;
-    right: -3px;
-    color: var(--color-sec);
+.featured .head{
+    margin: 2rem auto;
+}
+
+.product-item{
+    text-align: center;
+    width: 18rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 50px #ccc;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px));
+}
+
+.product-item .product-img{
+  width: 17rem;
+  margin: 0 auto;
+  border-radius: 5px;
+  
+}
+
+.product-img img{
+    width: 17rem;
+    height: 18rem;
+    border-radius: 1rem;
+    margin-top: 8px;
 }

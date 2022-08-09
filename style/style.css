@@ -166,3 +166,25 @@ body{
     color: var(--white);
     margin: auto;
 }
+
+/* img slider */
+.slider{
+    background-color: #9d0919;
+    margin: 3rem auto;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+
+}
+
+.slider .slide{
+    width: 100%;
+    height: 250px;
+    background-color: #db6400;
+    display: flex;
+
+}
+.slide-img{
+   width: 90rem;
+}
+

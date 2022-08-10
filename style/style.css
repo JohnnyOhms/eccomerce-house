@@ -27,6 +27,17 @@ body{
     position: sticky;
     top: 0;
     z-index: 1;
+    border-bottom: 1px solid black;
+    transition: var(--transition);
+}
+
+.range{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-sec);
 }
 
 .cart-icon {
@@ -49,7 +60,6 @@ body{
     width: 100%;
     background:url("/img/pexels-harsh-kushwaha-1689731.jpg");
     background-position: top 10% right 10%;
-    /* background-position: center; */
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -113,8 +123,6 @@ body{
 
 .product-item:hover{
     box-shadow: 0 0 50px rgb(107, 98, 98);
-
-
 }
 
 .product-item .product-img{
@@ -168,30 +176,25 @@ body{
 }
 
 /* img slider */
-/* .slider{
-    background-color: #9d0919;
-    margin: 3rem auto;
-    border: 2px solid black;
-    width: 45rem;
-    height: 250px;
-    overflow: hidden;
 
-} */
-
-/* .slider .slide{
-    width: 100%;
-    height: 250px;
-    background-color: #db6400;
+.slider{
     display: flex;
+    /* overflow: hidden; */
+}
 
-} */
-.slide img{
-   width: 230rem;
-   /* height: 230rem; */
+.slide{
+    display: flex;
+    margin: 0 auto;
+    height: 20rem;
+    background-color: #db6400;
+    /* overflow: hidden; */
 }
 
 footer{
-    background-color:var(--color-azure);
+    background-image: url(/img/banner/b2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-top: 2px solid rgba(0, 0, 0, 0.5);
     margin-top: 3rem;
     width: 100%;
@@ -232,7 +235,7 @@ footer .footer-content .link{
 }
 
 .link a:nth-child(4){
-    color: rgb(18, 18, 18)
+    color: var(--white)
 }
 
 footer .content{

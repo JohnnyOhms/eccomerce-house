@@ -197,6 +197,31 @@ body{
     }
 }
 
+.to-top{
+    width: 100%;
+    position: relative;
+}
+
+.top{
+    display: inline;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px ;
+    cursor: pointer;
+    transition: var(--transition);
+    background-color: var(--white);
+    z-index: 2;
+    transform: translateX(150%);
+    display: none;
+}
+
+.top >* {
+    font-size: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    padding: 3px;
+}
+
 footer{
     background-image: url(/img/banner/b2.jpg);
     background-size: cover;
@@ -256,3 +281,4 @@ footer .content > *{
 footer P{
     text-align: center;
 }
+

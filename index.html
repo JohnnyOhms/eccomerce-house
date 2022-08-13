@@ -9,6 +9,7 @@
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans|Satisfy|Oleo+Script+Swash+Caps|ABeeZee">
     <link rel="stylesheet" href="./main/style.css">
+    <link rel="stylesheet" href="./main/mediaQuery.css">
     <title>Shopping House</title>
 </head>
 <body>
@@ -26,12 +27,13 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <span class="cart-icon">
-                                    <div class="cart">
+                                <span class="cart-icons">
+                                    <div class="cart-btn">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </div>
                                     <div class="count">0</div>
                                 </span>
+                                
                             </a>
                         </li>
                         <li class="nav-item">
@@ -215,7 +217,88 @@
 
         <div class="cart-overlay">
             <div class="cart">
+                <i class="fa-solid fa-x p-2 fs-4 close-cart" style="cursor: pointer; color:rgb(156, 60, 60);"></i>
                 <h1 style="text-align: center;">Cart Items</h1>
+
+                <!-- cart items -->
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <div class="cart-items">
+                        <p class="name">Red Gown</p>
+                        <p class="price">$21,400</p>
+                        <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="item-amount mt-1">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="amount">1</span>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                    </div>
+                </div> 
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <div class="cart-items">
+                        <p class="name">Red Gown</p>
+                        <p class="price">$21,400</p>
+                        <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="item-amount mt-1">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="amount">1</span>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                    </div>
+                </div> 
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <div class="cart-items">
+                        <p class="name">Red Gown</p>
+                        <p class="price">$21,400</p>
+                        <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="item-amount mt-1">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="amount">1</span>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                    </div>
+                </div> 
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <div class="cart-items">
+                        <p class="name">Red Gown</p>
+                        <p class="price">$21,400</p>
+                        <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="item-amount mt-1">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="amount">1</span>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                    </div>
+                </div> 
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <div class="cart-items">
+                        <p class="name">Red Gown</p>
+                        <p class="price">$21,400</p>
+                        <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="item-amount mt-1">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="amount">1</span>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                    </div>
+                </div> 
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <div class="cart-items">
+                        <p class="name">Red Gown</p>
+                        <p class="price">$21,400</p>
+                        <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="item-amount mt-1">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="amount">1</span>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                    </div>
+                </div> 
                 <div class="cart-item">
                     <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                     <div class="cart-items">
@@ -232,7 +315,7 @@
 
                 <span class="total-amount">TOTAL: $50,000</span><br>
                 <div class="btn-clear">
-                    <button class="clear-all btn btn-danger">Empty cart</button>
+                    <button class="clear-all btn btn-danger mb-3">Empty cart</button>
                 </div>
             </div>
         </div>

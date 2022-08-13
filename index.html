@@ -12,9 +12,9 @@
     <title>Shopping House</title>
 </head>
 <body>
-    <div class="range">
-        <div class="scroll-tracker"></div>
-    </div>
+        <div class="range">
+            <div class="scroll-tracker"></div>
+        </div>
         <nav class="navbar navbar-expand-lg bg-light" id="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="./img/logo.png" alt=""></a>
@@ -211,6 +211,30 @@
                 <button type="button" id="start-shop" class="btn-shop btn btn-warning">Shop now</button>
  
             </section>
+        </div>
+
+        <div class="cart-overlay">
+            <div class="cart">
+                <h1 style="text-align: center;">Cart Items</h1>
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    <div class="cart-items">
+                        <p class="name">Red Gown</p>
+                        <p class="price">$21,400</p>
+                        <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="item-amount mt-1">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="amount">1</span>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                    </div>
+                </div> 
+
+                <span class="total-amount">TOTAL: $50,000</span><br>
+                <div class="btn-clear">
+                    <button class="clear-all btn btn-danger">Empty cart</button>
+                </div>
+            </div>
         </div>
 
         <footer>

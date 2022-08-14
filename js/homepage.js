@@ -23,7 +23,60 @@ export class Hompage{
         }, 1000)
    }
    async featuredProduct(){
-        let fetchData = await fetch()
+    try {
+        let fetchData = await fetch("./packages/featured.json")
+        let data = await fetchData.json()
+        let featured = data.product;
+        const result = featured.map(item => {
+            const {name, title} = item.field;
+            const image = item.field.image.fields.file.url;
+            return {name, title, image}
+        });
+        return result;
+    
+    } catch (error) {
+        console.log(error);
+    }
+   }
+   displayFeatured(data){
+        let display = ""
+        data.forEach(item => {
+            display += `
+                <div class="featured-product">
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="${item.image}" alt="">
+                        </div>
+                        <p>${item.name}</p>
+                        <p>${item.title}</p>
+                        <div class="star">
+                            <i class="fa-solid fa-star" style="color:#ffd700;"></i>
+                            <i class="fa-solid fa-star" style="color:#ffd700;"></i>
+                            <i class="fa-solid fa-star" style="color:#ffd700;"></i>
+                            <i class="fa-solid fa-star" style="color:#ffd700;"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div> 
+                    </div>
+                </div>
+             `
+        });
+        v.fatured_container.innerHTML = display;
+   }
+   carousel(){
+       for(let i = 0; i < 1; i++){
+            v.nextSlide.click();
+        }
+   }
+   footerIcons(){
+    let icons = Array.from(v.footerIcons)
+    icons.forEach(items=>{
+        items.addEventListener("click",()=>{
+            if (condition) {
+                
+            }
+        })
+    })
+
    }
 }
 

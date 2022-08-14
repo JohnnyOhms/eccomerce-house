@@ -8,8 +8,17 @@ window.addEventListener("DOMContentLoaded", ()=>{
     })
 
     v.startShop.addEventListener('click',()=>{
-        home.shopNow()
-       
+        home.shopNow()     
+    })
+
+    setInterval(()=>{
+        home.carousel()
+    },2000)
+
+    home.featuredProduct()
+    .then((result)=>{
+        home.displayFeatured(result)
+
     })
     
 })

@@ -5,6 +5,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
     const home = new Hompage
     window.addEventListener("scroll",()=>{
         home.scrollTrack()
+        home.featuredScroll()
+       
     })
     
 })

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2dfc8161ff.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans|Satisfy|Oleo+Script+Swash+Caps|ABeeZee">
+        <link rel="stylesheet" href="/main/style.css">
+        <link rel="stylesheet" href="/main/style2.css">
+        <link rel="stylesheet" href="/main/mediaQuery.css">
+    <title>Shopping House</title>
+</head>
+<body>
+                <div class="range">
+                    <div class="scroll-tracker"></div>
+                </div>
+            <nav class="navbar navbar-expand-lg bg-light" id="navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html"><img src="/img/logo.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span class="cart-icons">
+                                        <div class="cart-icon">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        <div class="count">0</div>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Shop</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="row">
+                <div class="col-md-2 mt-2">
+                    <div class="company">
+                            <form action="" id="radio">
+                                <input type="radio" name="fliterBox" id="firstBox" checked>
+                                <input type="radio" name="fliterBox" id="secondBox">
+                            </form>
+                        <div class="dropdown mb-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Flitter search
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li id="categories"><label for="firstBox" style="cursor: pointer; margin: 4px;">Categories</label></li>
+                                <li id="singleName"><label for="secondBox" style="cursor: pointer;margin: 4px;">Individaul name</label></li>
+                            </ul>
+                        </div>
+                        <form action="" class="form">
+                            <input type="text" class="form-control input-search categories" placeholder="search by Categories">
+                        </form>
+                    
+                        <div class="products">
+                            <p class="ps-2 mt-2" style="font-size: 20px;">Products</p>
+                            <div class="product">
+                                <p class="select-product active" data-fliter="all">All</p>
+                                <p class="select-product" data-fliter="cloth">Cloth</p>
+                                <p class="select-product" data-fliter="shoe">Shoes</p>
+                                <p class="select-product" data-fliter="hat">Hat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+
+                <div class="col-md-10 mt-2 d-block flex-column">
+                        <h1 class="text-center my-3">Avaliable Products</h1>
+
+                    <div class="item-collection">
+                        <div class="items">
+                            <div class="item">
+                                    <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                                <h2>cloth</h2>
+                                <p class="price">$21,500</p>
+                                <button class="cart-btn">
+                                    Add to cart
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="to-top">
+                <div class="top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </div>
+            </div>
+
+                <div class="cart-overlay">
+                    <div class="cart">
+                        <i class="fa-solid fa-x p-2 fs-4 close-cart" style="cursor: pointer; color:rgb(156, 60, 60);"></i>
+                        <h1 style="text-align: center;">Cart Items</h1>
+                
+                        <!-- cart items -->
+                        <div class="cart-item">
+                            <img src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="">
+                            <div class="cart-items">
+                                <p class="name">Red Gown</p>
+                                <p class="price">$21,400</p>
+                                <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                                <div class="item-amount mt-1">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <span class="amount">1</span>
+                                    <i class="fa-solid fa-minus"></i>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <span class="total-amount">TOTAL: $50,000</span><br>
+                        <div class="btn-clear">
+                            <button class="clear-all btn btn-danger mb-3">Empty cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            <footer>
+                <div class="footer-content ">
+                    <div class="link">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <div class="content d-flex">
+                        <p>Services</p>
+                        <p>About</p>
+                        <p>Terms</p>
+                        <p>Privacy Policy</p>
+                    </div>
+                    <p>John chinweike &copy; 2022</p>
+                </div>
+            </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>

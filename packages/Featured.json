@@ -1,0 +1,44 @@
+{
+   "featured": [
+    {
+      "sys": {"id": 1},
+      "field": {
+          "name": "Adidas",
+          "title": "Summer customize T-shirt",
+          "image": {"fields": {"file": {"url": "./img/products/f1.jpg"}}}
+        }
+    },
+      {
+      "sys": {"id": 2},
+      "field": {
+          "name": "Adidas",
+          "title": "Summer customize T-shirt",
+          "image": {"fields": {"file": {"url": "./img/products/f2.jpg"}}}
+        }
+    },
+      {
+      "sys": {"id": 3},
+      "field": {
+          "name": "Adidas",
+          "title": "Summer customize T-shirt",
+          "image": {"fields": {"file": {"url": "./img/products/f3.jpg"}}}
+        }
+    },
+      {
+      "sys": {"id": 4},
+      "field": {
+          "name": "Adidas",
+          "title": "Summer customize T-shirt",
+          "image": {"fields": {"file": {"url": "./img/products/f4.jpg"}}}
+        }
+    },
+      {
+      "sys": {"id": 6},
+      "field": {
+          "name": "Adidas",
+          "title": "Summer customize T-shirt",
+          "image": {"fields": {"file": {"url": "./img/products/f6.jpg"}}}
+        }
+    }
+   ]
+}

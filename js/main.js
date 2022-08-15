@@ -5,13 +5,22 @@ window.addEventListener("DOMContentLoaded", ()=>{
     const home = new Hompage()
     window.addEventListener("scroll",()=>{
         home.scrollTrack()
-        // home.goTop()
+        home.displayTopBtn()
     })
 
-  
-
     v.startShop.addEventListener('click',()=>{
-        home.shopNow()     
+        home.shopNow()   
+    })
+
+    v.toTop.addEventListener("click", ()=>{
+        home.goTop();  
+    })
+    
+    v.footerIcons.forEach(items=>{
+        items.addEventListener("click", (e)=>{
+            e.preventDefault()
+            home.footerIcons(e)
+        })
     })
 
     setInterval(()=>{

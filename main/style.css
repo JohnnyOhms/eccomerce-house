@@ -201,8 +201,10 @@ body{
     top: 45%;
     right: 3%;
     z-index: 7;
-    transition: var(--transition);
+    transition: all .4s;
     cursor: pointer;
+    transform: translateX(105%);
+    opacity: 0;
 }
 
 

@@ -68,34 +68,37 @@ export class Hompage{
             v.nextSlide.click();
         }
    }
-   footerIcons(){
-    let icons = Array.from(v.footerIcons)
-    icons.forEach(items=>{
-        items.addEventListener("click",(e)=>{
-            e.preventDefault();
+   footerIcons(e){
             let target = e.target;
             if (target.classList.contains("fa-facebook")) {
-                location.href =''
+                location.href ='http://facebook.com/'
+
             }else if(target.classList.contains("fa-github")){
                 location.href = ''
+                
             }else if(target.classList.contains("fa-whatsapp")){
-                // do something
+                location.href ="http://api.whatsapp.com/send?phone=+2348142431028"
+
             }else if(target.classList.contains("fa-twitter")){
                 location.href = ''
             }
-        })
-    })
-
    }
-   goTop(){
+   displayTopBtn(){
         let scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let topView = document.documentElement.scrollTop / scrollTotal
-        console.log(topView);
         if (topView > 0.3) {
-            v.toTop.style.display = "block"
+            v.toTop.style.transform = "translatex(0)"
+            v.toTop.style.opacity = "1"
         } else {
-            v.toTop.style.display = "none"
+            v.toTop.style.transform = "translateX(105%)"
+            v.toTop.style.opacity = "0"
         }
+   }
+   goTop(){
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
    }
   
 }

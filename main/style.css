@@ -8,7 +8,7 @@
     --color-grey: #ddd;
     --color-dark-grey: #222831;
     --color-azure: azure;
-    --transition: all .8 ease
+    --transition: all .8 ease;
 }
 
 * {
@@ -70,7 +70,7 @@ body{
 .hero-section{
     height: 100vh;
     width: 100%;
-    background:url("/img/pexels-harsh-kushwaha-1689731.jpg");
+    background:url("/img/hero.jpg");
     background-position: top 10% right 10%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -193,24 +193,19 @@ body{
 }
 
 .to-top{
-    width: 100%;
-    position: relative;
-
-}
-
-.top{
-    display: inline;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 5px ;
-    cursor: pointer;
+    font-size: 40px;
+    padding: 5px;
+    border: 1px solid black;
+    background: rgba(249, 244, 244, 0.5);
+    position: fixed;
+    top: 45%;
+    right: 3%;
+    z-index: 7;
     transition: var(--transition);
-    background-color: var(--white);
-    z-index: 2;
-    /* transform: translateX(150%); */
-    display: none;
+    cursor: pointer;
 }
+
+
 
 .top >* {
     font-size: 50px;

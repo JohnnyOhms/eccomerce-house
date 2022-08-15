@@ -1,14 +1,15 @@
 import * as v from "./var.js"
 
 export class Hompage{
-    constructor(){
-       
+    constructor(rootEl){
+       this.rootEl = rootEl
     }
    scrollTrack(){
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight
         var scrolled = (winScroll / height) * 100;
         v.scrollBar.style.width = scrolled + "%"
+        // this.goTop(scrolled)
    }
     shopNow(){
         window.scrollTo({
@@ -70,13 +71,32 @@ export class Hompage{
    footerIcons(){
     let icons = Array.from(v.footerIcons)
     icons.forEach(items=>{
-        items.addEventListener("click",()=>{
-            if (condition) {
-                
+        items.addEventListener("click",(e)=>{
+            e.preventDefault();
+            let target = e.target;
+            if (target.classList.contains("fa-facebook")) {
+                location.href =''
+            }else if(target.classList.contains("fa-github")){
+                location.href = ''
+            }else if(target.classList.contains("fa-whatsapp")){
+                // do something
+            }else if(target.classList.contains("fa-twitter")){
+                location.href = ''
             }
         })
     })
 
    }
+   goTop(){
+        let scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let topView = document.documentElement.scrollTop / scrollTotal
+        console.log(topView);
+        if (topView > 0.3) {
+            v.toTop.style.display = "block"
+        } else {
+            v.toTop.style.display = "none"
+        }
+   }
+  
 }
 

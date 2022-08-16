@@ -46,16 +46,45 @@ export class LoadProduct{
     }
 
     addID(product){
-        let product = product.forEach((item, i) => {
+        product.forEach((item, i) => {
             item.id = i + 1;
         });
-        ui.displayProduct(product)
+        this.shuffle(product)
+    }
+
+    shuffle(product){
+        let currenIndex = product.length, randomIndex;
+        while(currenIndex != 0){
+            randomIndex = Math.floor(Math.random() * currenIndex)
+            currenIndex --;
+    
+            [product[currenIndex], product[randomIndex]] = 
+            [product[randomIndex], product[currenIndex]]
+        }
+        ui.displayProduct(product) 
     }
 }
 
 export class UI {
     displayProduct(items){
-        console.log(items);
+        let display = ""
+        items.forEach((item)=>{
+            display += `
+                <div class="items">
+                <div class="item">
+                        <img src="${item.image}" alt="">
+                    <h2>${item.name}</h2>
+                    <p class="price">$${item.price}</p>
+                    <button class="cart-btn" data-id="${item.id}">
+                        Add to cart
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                </div>
+            </div>
+            `
+        })
+        v.itemCollecton.innerHTML = display;
+
     }
 }
 

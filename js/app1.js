@@ -1,8 +1,8 @@
 import * as v from "./var.js"
 import {Hompage} from "./homepage.js"
 
+export const home = new Hompage
 window.addEventListener("DOMContentLoaded", ()=>{
-    const home = new Hompage()
     window.addEventListener("scroll",()=>{
         home.scrollTrack()
         home.displayTopBtn()

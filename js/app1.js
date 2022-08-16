@@ -31,5 +31,4 @@ window.addEventListener("DOMContentLoaded", ()=>{
     .then((result)=>{
         home.displayFeatured(result)
     })
-    
 })

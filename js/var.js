@@ -7,4 +7,6 @@ export const footerIcons = document.querySelectorAll(".link a i")
 export const toTop = document.querySelector(".to-top")
 export let allProducts = []
 export const itemCollecton = document.querySelector(".item-collection")
+export let cart = []
+export const selectProduct = document.querySelectorAll(".select-product")
 

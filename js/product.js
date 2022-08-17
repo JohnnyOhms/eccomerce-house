@@ -63,6 +63,8 @@ export class LoadProduct{
         }
         ui.displayProduct(product) 
     }
+
+    cloth
 }
 
 export class UI {
@@ -84,8 +86,42 @@ export class UI {
             `
         })
         v.itemCollecton.innerHTML = display;
-
     }
+
+    getButtons(){
+        const btns = [...document.querySelectorAll(".cart-btn")]
+        btns.forEach((btn)=>{
+            let id = btn.dataset.id;
+            let inCart = v.cart.find(item=>item.id === id)
+            if (inCart) {
+                btn.innerText = "In cart";
+                btn.disabled = true;
+            }
+            btn.addEventListener("click", (e)=>{
+                let target = e.target;
+                target.innerHTML = `In cart <i class="fa-solid fa-cart-shopping"></i>`;
+                target.disabled= true;
+
+            })
+
+        })
+    }
+
+    selectProduct(){
+        v.selectProduct.forEach(item=>{
+            item.addEventListener("click",(e)=>{
+                v.selectProduct.forEach(rm=>{
+                    rm.classList.remove("active")
+                })
+                item.className += " active"
+                // e.target.classList.add("active")
+                let fliter = e.target.dataset.fliter
+                console.log(fliter);
+            })
+        })
+    }
+
+
 }
 
 export class Storage{

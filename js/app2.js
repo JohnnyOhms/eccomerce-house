@@ -19,6 +19,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
     load.getProductCloth()
     .then((data)=>{
+        console.log(data);
+        load.clothFliter(data)
         v.allProducts.push(...data)
     }).catch((error)=>{
         console.log(error);
@@ -35,8 +37,15 @@ window.addEventListener("DOMContentLoaded", ()=>{
     .then((data)=>{
         v.allProducts.push(...data)
         load.destructure(v.allProducts)
+
+    }).then(()=>{
+        ui.selectProduct()
+    })
+    
+    .then(()=>{
+        ui.getButtons()
+
     }).catch((error)=>{
-        // alert("Refreash page to Load all content")
         console.log(error);
     })
 

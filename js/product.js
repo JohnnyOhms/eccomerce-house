@@ -64,7 +64,23 @@ export class LoadProduct{
         ui.displayProduct(product) 
     }
 
-    cloth
+    clothFliter(data){
+        data.forEach(item=>{
+            item.fields.fliter = "cloth"
+        })
+    }
+
+    hatFliter(data){
+        data.forEach(item=>{
+            item.fields.fliter = "hat"
+        })
+    }
+
+    shoeFliter(data){
+        data.forEach(item=>{
+            itemm.fields.fliter = "shoe"
+        })
+    }
 }
 
 export class UI {

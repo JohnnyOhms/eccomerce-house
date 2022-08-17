@@ -19,22 +19,25 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
     load.getProductCloth()
     .then((data)=>{
-        console.log(data);
         load.clothFliter(data)
         v.allProducts.push(...data)
+
     }).catch((error)=>{
         console.log(error);
     });
 
     load.getProductHat()
     .then((data)=>{
+        load.hatFliter(data)
         v.allProducts.push(...data)
+
     }).catch((error)=>{
         console.log(error);
     });
 
     load.getProductShoe()
     .then((data)=>{
+        load.shoeFliter(data)
         v.allProducts.push(...data)
         load.destructure(v.allProducts)
 

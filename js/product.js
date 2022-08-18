@@ -125,7 +125,7 @@ export class UI {
                 target.disabled= true;
                 Storage.getProduct(id)
                
-                
+        
             })
 
         })
@@ -171,8 +171,41 @@ export class UI {
     addToCart(item){
         let cartItem = {...item, amount: 1}
         v.cart.push(cartItem)
-        console.log(v.cart);
         Storage.saveCartItem(v.cart)
+        this.addAmount(v.cart)
+        this.displayCart(v.cart)
+    }
+
+    addAmount(cart){
+        let totalAmount = 0
+        let totalItem = 0
+        cart.map(item=>{
+            totalAmount += item.price * item.amount;
+            totalItem += item.amount;
+        })
+        v.count.innerText = totalItem;
+        v.cartTotal.innerText = parseFloat(totalAmount.toFixed(3))
+    }
+
+    displayCart(item){
+        let display = ''
+        item.forEach(item=>{
+            display += `<div class="cart-item">
+            <img src="${item.image}"
+                alt="">
+            <div class="cart-items">
+                <p class="name">${item.name}</p>
+                <p class="price">$${item.price}</p>
+                <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                <div class="item-amount mt-1">
+                    <i class="fa-solid fa-plus"></i>
+                    <span class="amount">${item.amount}</span>
+                    <i class="fa-solid fa-minus"></i>
+                </div>
+            </div>
+        </div>`
+        })
+        v.cartOverlay.innerHTML = display;
     }
     
 }
@@ -191,17 +224,7 @@ export class Storage{
         ui.addToCart(item)
     }
 
-    static getCartItem(){
-        if(localStorage.getItem('cartItem') === null){
-            v.cartItem = []
-        }
-        else{
-            v.cartItem = JSON.parse(localStorage.getItem("cartItem"))
-        }   
-    }
-
     static saveCartItem(cart){
-        // this.getCartItem()
         localStorage.setItem("cart", JSON.stringify(cart))
     }
-}
+}     

@@ -11,5 +11,8 @@ export let cart = []
 export const selectProduct = document.querySelectorAll(".select-product")
 export const searchName = document.querySelector("#firstBox")
 export const searchCategory = document.querySelector("#secondBox")
-// export let cartItem
+export const cartTotal = document.querySelector(".total-amount")
+export const count = document.querySelector(".count")
+export const cartBox = document.querySelector(".cart-box")
+export const cartOverlay = document.querySelector(".cart-overlay")
 

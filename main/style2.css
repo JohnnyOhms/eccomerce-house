@@ -9,7 +9,7 @@
 }
 
 input[type=radio]{
-    display: none;
+    /* display: none; */
 }
 
 .item-collection{
@@ -28,6 +28,8 @@ input[type=radio]{
     box-shadow: 0 0 50px rgb(194, 184, 184);
     margin-bottom: 3px;
     margin: 3px auto;
+    animation: slide-up ease .4s;
+    transition: all .4s ease-in;
 }
 
 .items:hover{
@@ -77,4 +79,12 @@ input[type=radio]{
 
 .cart-btn:hover {
     opacity: 0.7;
+}
+
+@keyframes slide-up {
+    from{
+        transform: translateY(20%);
+    }to{
+        transform: translateY(0);
+    }
 }

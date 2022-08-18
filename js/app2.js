@@ -41,7 +41,13 @@ window.addEventListener("DOMContentLoaded", ()=>{
         v.allProducts.push(...data)
         load.destructure(v.allProducts)
 
-    }).then(()=>{
+    })
+
+    .then(()=>{
+        ui.setUP()
+    })
+    
+    .then(()=>{
         ui.selectProduct()
     })
     

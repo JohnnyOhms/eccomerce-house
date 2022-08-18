@@ -38,9 +38,9 @@ export class LoadProduct{
 
     destructure(data){
         let product = data.map((item)=>{
-            const {name, price} = item.fields;
+            const {name, price, fliter} = item.fields;
             const image = item.fields.image.fields.file.url;
-            return {name, price, image}
+            return {name, price, fliter, image}
         })
        this.addID(product)
     }
@@ -78,7 +78,7 @@ export class LoadProduct{
 
     shoeFliter(data){
         data.forEach(item=>{
-            itemm.fields.fliter = "shoe"
+            item.fields.fliter = "shoe"
         })
     }
 }
@@ -88,7 +88,7 @@ export class UI {
         let display = ""
         items.forEach((item)=>{
             display += `
-                <div class="items">
+                <div class="items" id="${item.fliter}">
                 <div class="item">
                         <img src="${item.image}" alt="">
                     <h2>${item.name}</h2>
@@ -102,22 +102,29 @@ export class UI {
             `
         })
         v.itemCollecton.innerHTML = display;
+        Storage.saveProduct(items)
+    }
+
+    setUP(){
+        this.searchBy()
     }
 
     getButtons(){
         const btns = [...document.querySelectorAll(".cart-btn")]
         btns.forEach((btn)=>{
-            let id = btn.dataset.id;
-            let inCart = v.cart.find(item=>item.id === id)
+            let ids = btn.dataset.id;
+            let inCart = v.cart.find(item=>item.id === ids)
             if (inCart) {
                 btn.innerText = "In cart";
                 btn.disabled = true;
             }
             btn.addEventListener("click", (e)=>{
                 let target = e.target;
+                let id= target.dataset.id;
                 target.innerHTML = `In cart <i class="fa-solid fa-cart-shopping"></i>`;
                 target.disabled= true;
-
+                let cartItem = Storage.getProduct(id)
+                
             })
 
         })
@@ -132,16 +139,47 @@ export class UI {
                 item.className += " active"
                 // e.target.classList.add("active")
                 let fliter = e.target.dataset.fliter
-                console.log(fliter);
+               this.fliterItems(fliter)
             })
         })
     }
 
+    fliterItems(fliter){
+        const product = document.querySelectorAll(".item-collection .items")
+        product.forEach(item=>{
+            if (fliter === "all") {
+                item.style.display = "block"
+            }
+            else if(item.id === fliter){
+                item.style.display = "block"
+            }
+            else{
+                item.style.display = "none"
+            }
+        })
+    }
 
+    searchBy(){
+        
+        if (v.searchCategory.checked == true) {
+            // console.log('secondBox');
+            console.log(v.searchName);
+        }
+    }
 }
 
 export class Storage{
     static saveProduct(item){
         localStorage.setItem("products", JSON.stringify(item))
+    }
+
+    static getProduct(id){
+        let product = JSON.parse(localStorage.getItem("products"))
+        // return product.find(item=>item.id === id)
+        product.forEach(item=>{
+            if(item.id === id){
+                console.log(item.id);
+            }
+        })
     }
 }

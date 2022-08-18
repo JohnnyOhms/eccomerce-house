@@ -9,4 +9,6 @@ export let allProducts = []
 export const itemCollecton = document.querySelector(".item-collection")
 export let cart = []
 export const selectProduct = document.querySelectorAll(".select-product")
+export const searchName = document.querySelector("#firstBox")
+export const searchCategory = document.querySelector("#secondBox")
 

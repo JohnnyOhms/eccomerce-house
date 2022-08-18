@@ -106,8 +106,9 @@ export class UI {
     }
 
     startApp(){
-        this.searchBy()
+        // this.searchBy()
         v.cartBox.addEventListener("click",this.showCart)
+        
     }
 
     getButtons(){
@@ -175,6 +176,7 @@ export class UI {
         Storage.saveCartItem(v.cart)
         this.addAmount(v.cart)
         this.displayCart(v.cart)
+        this.showCart()
     }
 
     addAmount(cart){

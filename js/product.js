@@ -105,8 +105,9 @@ export class UI {
         Storage.saveProduct(items)
     }
 
-    setUP(){
+    startApp(){
         this.searchBy()
+        v.cartBox.addEventListener("click",this.showCart)
     }
 
     getButtons(){
@@ -184,30 +185,36 @@ export class UI {
             totalItem += item.amount;
         })
         v.count.innerText = totalItem;
-        v.cartTotal.innerText = parseFloat(totalAmount.toFixed(3))
+        v.cartTotal.innerText = 'TOTAL: $'+ parseFloat(totalAmount.toFixed(3))
     }
 
-    displayCart(item){
-        let display = ''
-        item.forEach(item=>{
+    displayCart(items){
+        let display ="";
+        items.forEach(item=>{
             display += `<div class="cart-item">
-            <img src="${item.image}"
-                alt="">
-            <div class="cart-items">
-                <p class="name">${item.name}</p>
-                <p class="price">$${item.price}</p>
-                <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
-                <div class="item-amount mt-1">
-                    <i class="fa-solid fa-plus"></i>
-                    <span class="amount">${item.amount}</span>
-                    <i class="fa-solid fa-minus"></i>
+                <img src="${item.image}"
+                    alt="">
+                <div class="cart-items">
+                    <p class="name">${item.name}</p>
+                    <p class="price">$${item.price}</p>
+                    <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                    <div class="item-amount mt-1">
+                        <i class="fa-solid fa-plus"></i>
+                        <span class="amount">${item.amount}</span>
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
                 </div>
-            </div>
-        </div>`
+            </div>`
         })
-        v.cartOverlay.innerHTML = display;
+        let cartItems = document.createElement('div')
+        cartItems.innerHTML = display;
+        v.cartSection.insertBefore(cartItems, v.cartSection.children[2])
     }
-    
+
+    showCart(){
+        v.cartOverlay.style.display = "block"
+        v.cartSection.style.transform = "translateX(0%)"
+    }
 }
 
 export class Storage{

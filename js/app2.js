@@ -6,6 +6,8 @@ import {LoadProduct, UI, Storage} from "./product.js"
 export const load = new LoadProduct;
 export const ui = new UI;
 window.addEventListener("DOMContentLoaded", ()=>{
+    ui.startApp()
+
      v.toTop.addEventListener("click", ()=>{
         home.goTop();  
     })
@@ -43,10 +45,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
     })
 
-    .then(()=>{
-        ui.setUP()
-    })
-    
     .then(()=>{
         ui.selectProduct()
     })

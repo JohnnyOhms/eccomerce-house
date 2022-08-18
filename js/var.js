@@ -13,6 +13,7 @@ export const searchName = document.querySelector("#firstBox")
 export const searchCategory = document.querySelector("#secondBox")
 export const cartTotal = document.querySelector(".total-amount")
 export const count = document.querySelector(".count")
-export const cartBox = document.querySelector(".cart-box")
+export const cartBox = document.querySelector("#cart-box")
 export const cartOverlay = document.querySelector(".cart-overlay")
+export const cartSection = document.querySelector(".cart")
 

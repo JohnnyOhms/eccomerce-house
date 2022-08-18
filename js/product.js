@@ -167,6 +167,14 @@ export class UI {
             console.log(v.searchName);
         }
     }
+
+    addToCart(item){
+        let cartItem = {...item, amount: 1}
+        v.cart.push(cartItem)
+        console.log(v.cart);
+        Storage.saveCartItem(v.cart)
+    }
+    
 }
 
 export class Storage{
@@ -180,8 +188,7 @@ export class Storage{
         let item = product.find(function(e){
             return  e.id == id
         })
-        // console.log(item);
-        Storage.saveCartItem(item)
+        ui.addToCart(item)
     }
 
     static getCartItem(){
@@ -193,10 +200,8 @@ export class Storage{
         }   
     }
 
-    static saveCartItem(item){
-        this.getCartItem()
-        let cart_Item = {item}
-        v.cartItem.push(cart_Item)
-        localStorage.setItem("cartItem", JSON.stringify(v.cartItem))
+    static saveCartItem(cart){
+        // this.getCartItem()
+        localStorage.setItem("cart", JSON.stringify(cart))
     }
 }

@@ -123,7 +123,8 @@ export class UI {
                 let id= target.dataset.id;
                 target.innerHTML = `In cart <i class="fa-solid fa-cart-shopping"></i>`;
                 target.disabled= true;
-                let cartItem = Storage.getProduct(id)
+                Storage.getProduct(id)
+               
                 
             })
 
@@ -171,15 +172,31 @@ export class UI {
 export class Storage{
     static saveProduct(item){
         localStorage.setItem("products", JSON.stringify(item))
+
     }
 
     static getProduct(id){
         let product = JSON.parse(localStorage.getItem("products"))
-        // return product.find(item=>item.id === id)
-        product.forEach(item=>{
-            if(item.id === id){
-                console.log(item.id);
-            }
+        let item = product.find(function(e){
+            return  e.id == id
         })
+        // console.log(item);
+        Storage.saveCartItem(item)
+    }
+
+    static getCartItem(){
+        if(localStorage.getItem('cartItem') === null){
+            v.cartItem = []
+        }
+        else{
+            v.cartItem = JSON.parse(localStorage.getItem("cartItem"))
+        }   
+    }
+
+    static saveCartItem(item){
+        this.getCartItem()
+        let cart_Item = {item}
+        v.cartItem.push(cart_Item)
+        localStorage.setItem("cartItem", JSON.stringify(v.cartItem))
     }
 }

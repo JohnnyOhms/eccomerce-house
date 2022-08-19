@@ -258,10 +258,11 @@ export class Storage{
 
     static getCartItem(){
         let cartValue = JSON.parse(localStorage.getItem("cart")) || []
-        for(var i of cartValue){
-            v.cart.push(i)
-        }
+        
         console.log(v.cart);
         // ui.populateCart(v.cart)
     }
 }    
+
+
+// line 261 to append all the data of the local storage cart into our working cart

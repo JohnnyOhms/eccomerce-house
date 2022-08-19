@@ -107,7 +107,9 @@ export class UI {
 
     startApp(){
         // this.searchBy()
-        v.cartBox.addEventListener("click",this.showCart)
+        v.showCart.addEventListener("click",this.showCart)
+        v.closeCart.addEventListener("click",this.hideCart)
+        Storage.getCartItem
         
     }
 
@@ -125,9 +127,7 @@ export class UI {
                 let id= target.dataset.id;
                 target.innerHTML = `In cart <i class="fa-solid fa-cart-shopping"></i>`;
                 target.disabled= true;
-                Storage.getProduct(id)
-               
-        
+                Storage.getProduct(ids)
             })
 
         })
@@ -176,7 +176,7 @@ export class UI {
         Storage.saveCartItem(v.cart)
         this.addAmount(v.cart)
         this.displayCart(v.cart)
-        this.showCart()
+        // this.showCart()
     }
 
     addAmount(cart){
@@ -217,6 +217,16 @@ export class UI {
         v.cartOverlay.style.display = "block"
         v.cartSection.style.transform = "translateX(0%)"
     }
+
+    hideCart(){
+        v.cartSection.style.transform = "translateX(120%)"
+        v.cartOverlay.style.display = "none"
+    }
+
+    populateCart(cart){
+        this.addAmount(cart)
+        this.displayCart(cart)
+    }
 }
 
 export class Storage{
@@ -235,5 +245,12 @@ export class Storage{
 
     static saveCartItem(cart){
         localStorage.setItem("cart", JSON.stringify(cart))
+    }
+
+    static getCartItem(){
+        let cartValue = JSON.parse(localStorage.getItem("cart")) || []
+        // v.cart = [...cartValue]
+        v.cart.concat(cartValue)
+        ui.populateCart(cartValue)
     }
 }     

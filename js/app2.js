@@ -43,11 +43,11 @@ window.addEventListener("DOMContentLoaded", ()=>{
         load.shoeFliter(data)
         v.allProducts.push(...data)
         load.destructure(v.allProducts)
-
     })
 
     .then(()=>{
         ui.selectProduct()
+        Storage.getCartItem()
     })
     
     .then(()=>{

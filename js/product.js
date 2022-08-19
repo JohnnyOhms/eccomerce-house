@@ -109,7 +109,7 @@ export class UI {
         // this.searchBy()
         v.showCart.addEventListener("click",this.showCart)
         v.closeCart.addEventListener("click",this.hideCart)
-        Storage.getCartItem
+        Storage.getCartItem()
         
     }
 
@@ -117,20 +117,28 @@ export class UI {
         const btns = [...document.querySelectorAll(".cart-btn")]
         btns.forEach((btn)=>{
             let ids = btn.dataset.id;
-            let inCart = v.cart.find(item=>item.id === ids)
-            if (inCart) {
-                btn.innerText = "In cart";
-                btn.disabled = true;
-            }
+            this.checkInCart(ids, btn)
             btn.addEventListener("click", (e)=>{
                 let target = e.target;
                 let id= target.dataset.id;
-                target.innerHTML = `In cart <i class="fa-solid fa-cart-shopping"></i>`;
-                target.disabled= true;
-                Storage.getProduct(ids)
+                target.innerHTML = `In cart <i class="fa-solid fa-cart-shopping" style="color:black;"></i>`;
+                target.disabled = true;
+                Storage.getProduct(id)
             })
 
         })
+    }
+
+    checkInCart(ids, btn){
+        let inCart = JSON.parse(localStorage.getItem("cart")) || []
+        let cartIn = inCart.find(function(e){
+            return e.id == ids
+        })
+     
+        if (cartIn) {
+            btn.innerHTML = `In cart <i class="fa-solid fa-cart-shopping" style="color:black;"></i>`;
+            btn.disabled = true;
+        }
     }
 
     selectProduct(){
@@ -244,13 +252,16 @@ export class Storage{
     }
 
     static saveCartItem(cart){
+        // this.getCartItem()
         localStorage.setItem("cart", JSON.stringify(cart))
     }
 
     static getCartItem(){
         let cartValue = JSON.parse(localStorage.getItem("cart")) || []
-        // v.cart = [...cartValue]
-        v.cart.concat(cartValue)
-        ui.populateCart(cartValue)
+        for(var i of cartValue){
+            v.cart.push(i)
+        }
+        console.log(v.cart);
+        // ui.populateCart(v.cart)
     }
-}     
+}    

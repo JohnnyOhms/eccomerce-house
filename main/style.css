@@ -53,11 +53,14 @@ body{
 }
 
 .cart-icons {
-    background-color: #9d0919;
     font-size: 1.5rem;
     cursor: pointer;
     position: relative;
     color: var(--color-sec);
+}
+
+#cart-box{
+    padding: 0.8rem;
 }
 
 .count {
@@ -232,14 +235,20 @@ body{
     top:0;
     right: 0;
     z-index: 4;
-    background-color:var(--white);
+    background-color:var(--color-grey);
     height: 40%;
     width: 100%; 
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
     transform: translateX(100%);
-    transition: var(--transition)\;
+    transition: var(--transition);
+    /* display: none; */
+}
+
+.show-cart{
+    display: block;
+    transform: translateX(0);
 }
 
 .cart .cart-item {
@@ -263,9 +272,9 @@ body{
     transition: var(--transition);
 }
 
-.cart-item .cart-items #trash:hover{
+/* .cart-item .cart-items #trash:hover{
     font-size: 25px;
-}
+} */
 
 .item-amount i{
     border: 1px solid grey;
@@ -275,9 +284,9 @@ body{
     cursor: pointer;
 }
 
-.item-amount i:hover{
+/* .item-amount i:hover{
     font-size: 25px;
-}
+} */
 
 .cart .total-amount{
     margin: 5px auto;

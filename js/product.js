@@ -106,10 +106,10 @@ export class UI {
     }
 
     startApp(){
-        // this.searchBy()
         v.showCart.addEventListener("click",this.showCart)
         v.closeCart.addEventListener("click",this.hideCart)
         Storage.getCartItem()
+        this.cartLogic()
         
     }
 
@@ -195,6 +195,8 @@ export class UI {
             totalAmount += item.price * item.amount;
             totalItem += item.amount;
         })
+        // console.log(cart);
+        // console.log(totalAmount);
         v.count.innerText = totalItem;
         v.cartTotal.innerText = 'TOTAL: $'+ parseFloat(totalAmount.toFixed(3))
     }
@@ -217,9 +219,7 @@ export class UI {
                 </div>
             </div>`
         })
-        let cartItems = document.createElement('div')
-        cartItems.innerHTML = display;
-        v.cartSection.insertBefore(cartItems, v.cartSection.children[2])
+        v.cartItems.innerHTML = display;        
     }
 
     showCart(){
@@ -236,7 +236,27 @@ export class UI {
         this.addAmount(cart)
         this.displayCart(cart)
     }
-}
+
+    cartLogic(){
+        v.clearCartItem.addEventListener("click",()=>{
+            this.clearCart()
+        })
+    }
+
+    clearCart(){
+        let cartItem = v.cart.map(item=>item.id)
+        cartItem.forEach(id=>this.removeItem(id))
+    }
+    
+    removeItem(id){
+      let flit = v.cart.filter(function(item){
+        return item.id !== id   
+    })
+       Storage.saveCartItem(flit)
+       this.addAmount(flit)
+
+    }
+} 
 
 export class Storage{
     static saveProduct(item){
@@ -263,5 +283,3 @@ export class Storage{
     }
 }    
 
-
-// line 261 to append all the data of the local storage cart into our working cart

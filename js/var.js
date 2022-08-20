@@ -16,5 +16,7 @@ export const count = document.querySelector(".count")
 export const showCart = document.querySelector("#cart-box")
 export const cartOverlay = document.querySelector(".cart-overlay")
 export const cartSection = document.querySelector(".cart")
+export const cartItems = document.querySelector(".cart-items")
 export const closeCart = document.querySelector(".close-cart")
+export const clearCartItem = document.querySelector(".clear-all") 
 

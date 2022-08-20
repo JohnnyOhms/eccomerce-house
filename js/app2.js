@@ -47,7 +47,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
     .then(()=>{
         ui.selectProduct()
-        Storage.getCartItem()
     })
     
     .then(()=>{

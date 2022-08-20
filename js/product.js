@@ -118,6 +118,7 @@ export class UI {
         btns.forEach((btn)=>{
             let ids = btn.dataset.id;
             this.checkInCart(ids, btn)
+
             btn.addEventListener("click", (e)=>{
                 let target = e.target;
                 let id= target.dataset.id;
@@ -184,7 +185,7 @@ export class UI {
         Storage.saveCartItem(v.cart)
         this.addAmount(v.cart)
         this.displayCart(v.cart)
-        // this.showCart()
+        this.showCart()
     }
 
     addAmount(cart){
@@ -252,15 +253,13 @@ export class Storage{
     }
 
     static saveCartItem(cart){
-        // this.getCartItem()
         localStorage.setItem("cart", JSON.stringify(cart))
     }
 
     static getCartItem(){
         let cartValue = JSON.parse(localStorage.getItem("cart")) || []
-        
-        console.log(v.cart);
-        // ui.populateCart(v.cart)
+        v.cart.push(...cartValue)
+        ui.populateCart(v.cart)
     }
 }    
 

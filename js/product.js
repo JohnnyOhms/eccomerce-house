@@ -61,7 +61,10 @@ export class LoadProduct{
             [product[currenIndex], product[randomIndex]] = 
             [product[randomIndex], product[currenIndex]]
         }
-        ui.displayProduct(product) 
+
+        ui.displayProduct(product)
+        v.productNames.push(...product)
+  
     }
 
     clothFliter(data){
@@ -174,7 +177,7 @@ export class UI {
     searchBy(){
 
         v.dropDown.addEventListener("click", (e)=>{
-                if(e.target.classList.contains("label-1")|| e.target.classList.contains("label-2")){
+                if(e.target.classList.contains("label-1") || e.target.classList.contains("label-2")){
                     
                     if (document.getElementById("firstBox").checked) {
                         v.searchBox.setAttribute("placeholder", "search by Categories")
@@ -205,6 +208,30 @@ export class UI {
         })
     }
 
+    categorySearch(){
+        v.searchBox.addEventListener("keyup", (e)=>{
+            let value = e.target.value.toLowerCase()
+
+            let chilDren = [...v.itemCollecton.children]
+            for (let i = 0; i < chilDren.length; i++) {
+                const child = chilDren[i];
+               if (child.id.includes(value)) {
+                    child.style.display = 'block'
+               }else{
+                child.style.display = "none"
+               }
+            }
+        })
+    }
+
+    nameSearch(){
+        v.searchBox.addEventListener("keyup", (e)=>{
+            let value = e.target.value.toLowerCase()
+
+            
+        })
+    }
+
     addToCart(item){
         let cartItem = {...item, amount: 1}
         v.cart.push(cartItem)
@@ -221,8 +248,6 @@ export class UI {
             totalAmount += item.price * item.amount;
             totalItem += item.amount;
         })
-        // console.log(cart);
-        // console.log(totalAmount);
         v.count.innerText = totalItem;
         v.cartTotal.innerText = 'TOTAL: $'+ parseFloat(totalAmount.toFixed(3))
     }
@@ -245,7 +270,7 @@ export class UI {
                 </div>
             </div>`
         })
-        v.cartItems.innerHTML = display;        
+        v.cartItems.innerHTML = display;
     }
 
     showCart(){

@@ -52,7 +52,7 @@
                 <div class="col-md-2 mt-2">
                     <div class="company">
                             <form action="" id="radio">
-                                <input type="radio" name="fliterBox" id="firstBox" checked>
+                                <input type="radio" name="fliterBox" id="firstBox">
                                 <input type="radio" name="fliterBox" id="secondBox">
                             </form>
                         <div class="dropdown mb-2">
@@ -60,13 +60,13 @@
                                 Flitter By
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
-                            <ul class="dropdown-menu">
-                                <li id="categories"><label for="firstBox" style="cursor: pointer; margin: 4px;">Categories</label></li>
-                                <li id="singleName"><label for="secondBox" style="cursor: pointer;margin: 4px;">Individaul name</label></li>
+                            <ul class="dropdown-menu" style="background-color: red;">
+                                <li id="categories"><label id="first-box" for="firstBox" class="label-1" style="cursor: pointer; margin: 4px; background-color: aqua;">Categories</label></li>
+                                <li id="singleName"><label id="box" for="secondBox" class="label-2" style="cursor: pointer;margin: 4px; background-color: aqua;">Individaul name</label></li>
                             </ul>
                         </div>
                         <form action="" class="form">
-                            <input type="text" class="form-control input-search categories" placeholder="search by Categories">
+                            <input type="text" class="form-control input-search" placeholder="select a search type " >
                         </form>
                     
                         <div class="products">

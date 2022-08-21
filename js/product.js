@@ -172,11 +172,37 @@ export class UI {
     }
 
     searchBy(){
+
+        v.dropDown.addEventListener("click", (e)=>{
+                if(e.target.classList.contains("label-1")|| e.target.classList.contains("label-2")){
+                    
+                    if (document.getElementById("firstBox").checked) {
+                        v.searchBox.setAttribute("placeholder", "search by Categories")
+                        if(v.searchBox.classList.contains("categories-search")){
+                            return;
+                        }else if(v.searchBox.classList.contains("name-search")){
+                            v.searchBox.classList.replace("name-search", "categories-search")
+                        }
+                        else{
+                            v.searchBox.className +=" categories-search"
+                        }
+                        this.categorySearch()
+                    }
         
-        if (v.searchCategory.checked == true) {
-            // console.log('secondBox');
-            console.log(v.searchName);
-        }
+                    else if (document.getElementById("secondBox").checked) {
+                        v.searchBox.setAttribute("placeholder", "search by Name")
+                        if (v.searchBox.classList.contains("name-search")) {
+                            return;
+                        }
+                        else if(v.searchBox.classList.contains("categories-search")){
+                            v.searchBox.classList.replace("categories-search", "name-search")
+                        }else{
+                            v.searchBox.className += " name-search"        
+                        }
+                        this.nameSearch()
+                    }
+                }
+        })
     }
 
     addToCart(item){
@@ -245,15 +271,20 @@ export class UI {
 
     clearCart(){
         let cartItem = v.cart.map(item=>item.id)
-        cartItem.forEach(id=>this.removeItem(id))
+        cartItem.map(id=>this.removeItem(id))
     }
     
     removeItem(id){
-      let flit = v.cart.filter(function(item){
-        return item.id !== id   
-    })
-       Storage.saveCartItem(flit)
-       this.addAmount(flit)
+        let remove = []
+        remove = v.cart.filter(function(e){
+            return e.id !== id
+        })
+
+        console.log(remove);
+
+
+        Storage.saveCartItem(v.cart)
+        this.addAmount(v.cart)
 
     }
 } 

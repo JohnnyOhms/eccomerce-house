@@ -222,6 +222,7 @@ export class UI {
                }
             }
         })
+
     }
 
     nameSearch(){
@@ -230,6 +231,20 @@ export class UI {
 
             
         })
+    }
+
+    textMethode(){
+        let childrens = [...v.itemCollecton.children]
+        childrens.forEach(item=>{
+            // item.nextElementSibling;
+            let sib = item.nextElementSibling;
+            sib.forEach(name=>{
+                console.log(name.childNode);
+            })
+            console.log(sib);
+        })
+
+       
     }
 
     addToCart(item){
@@ -261,11 +276,11 @@ export class UI {
                 <div class="cart-items">
                     <p class="name">${item.name}</p>
                     <p class="price">$${item.price}</p>
-                    <span id="trash"><i class="fa-solid fa-trash-can"></i></span>
+                    <span id="trash"><i class="fa-solid fa-trash-can" data-id="${item.id}"></i></span>
                     <div class="item-amount mt-1">
-                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-plus" data-id="${item.id}"></i>
                         <span class="amount">${item.amount}</span>
-                        <i class="fa-solid fa-minus"></i>
+                        <i class="fa-solid fa-minus" data-id="${item.id}"></i>
                     </div>
                 </div>
             </div>`
@@ -292,6 +307,34 @@ export class UI {
         v.clearCartItem.addEventListener("click",()=>{
             this.clearCart()
         })
+
+        v.cartSection.addEventListener("click",(e)=>{
+            let target = e.target;
+            let id = target.dataset.id;
+
+            if(target.classList.contains("fa-plus")){
+                let addAmount = v.cart.find(item=>item.id == id)
+                addAmount.amount++;
+                target.nextElementSibling.innerText = addAmount.amount;
+                this.addAmount(v.cart)
+                Storage.saveCartItem(v.cart); 
+            }
+            else if (target.classList.contains("fa-minus")){
+                let minusAmount = v.cart.find(item=>item.id == id)
+                minusAmount.amount --
+                console.log(minusAmount.amount);
+                if (minusAmount.amount == 0) {
+                //    this.removeItem(v.cart)
+                //   Storage.saveCartItem(v.cart)
+
+                }else{
+                    target.previousElementSibling.innerText = minusAmount.amount;
+                    this.addAmount(v.cart)
+                    Storage.saveCartItem(v.cart)
+                   
+                }
+            }
+        })
     }
 
     clearCart(){
@@ -301,9 +344,8 @@ export class UI {
     
     removeItem(id){
         let remove = []
-        remove = v.cart.filter(function(e){
-            return e.id !== id
-        })
+        remove = v.cart.filter()
+        
 
         console.log(remove);
 

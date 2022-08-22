@@ -48,6 +48,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     .then(()=>{
         ui.selectProduct()
         ui.searchBy()
+        // ui.textMethode()
     })
     
     .then(()=>{

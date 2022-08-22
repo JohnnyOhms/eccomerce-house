@@ -19,6 +19,5 @@ export const cartSection = document.querySelector(".cart")
 export const cartItems = document.querySelector(".cart-items")
 export const closeCart = document.querySelector(".close-cart")
 export const clearCartItem = document.querySelector(".clear-all")
-export let productNames = []
 export let eachButton = []
 

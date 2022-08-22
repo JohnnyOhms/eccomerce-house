@@ -63,7 +63,7 @@ export class LoadProduct{
         }
 
         ui.displayProduct(product)
-        v.productNames.push(...product)
+        // v.productNames.push(...product)
   
     }
 
@@ -131,6 +131,7 @@ export class UI {
             })
 
         })
+
         //make a seperate array for each single btns
         for(var i of  btns){
             v.eachButton.push(i)
@@ -326,7 +327,7 @@ export class UI {
             else if (target.classList.contains("fa-minus")){
                 let minusAmount = v.cart.find(item=>item.id == id)
                 minusAmount.amount --
-                if (minusAmount.amount == 0) {
+                if (minusAmount.amount === 0) {
                     target.parentElement.parentElement.parentElement.parentElement.remove()
                    this.removeItem(id)
                    this.addAmount(v.cart)
@@ -358,17 +359,18 @@ export class UI {
             return e.id != id
         })
         v.cart.splice(0, v.cart.length, ...removeItem)
-        let btn = this.getEachButtons(id)
-        console.log(btn);
-    }
 
-    getEachButtons(id){
-        v.eachButton.find(function(e){
-            return e.id == id;
+        let btn = v.eachButton.find(function(e){
+            return e.id = id;
         })
-    }
-    //set btn back to default
 
+        if(btn){
+            btn.disabled = false
+            btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`;
+
+        }
+        // enable btn after removed from cart
+    }
 } 
 
 export class Storage{

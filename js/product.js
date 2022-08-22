@@ -131,6 +131,10 @@ export class UI {
             })
 
         })
+        //make a seperate array for each single btns
+        for(var i of  btns){
+            v.eachButton.push(i)
+        }
     }
 
     checkInCart(ids, btn){
@@ -322,10 +326,11 @@ export class UI {
             else if (target.classList.contains("fa-minus")){
                 let minusAmount = v.cart.find(item=>item.id == id)
                 minusAmount.amount --
-                console.log(minusAmount.amount);
                 if (minusAmount.amount == 0) {
-                //    this.removeItem(v.cart)
-                //   Storage.saveCartItem(v.cart)
+                    target.parentElement.parentElement.parentElement.parentElement.remove()
+                   this.removeItem(id)
+                   this.addAmount(v.cart)
+                   Storage.saveCartItem(v.cart)
 
                 }else{
                     target.previousElementSibling.innerText = minusAmount.amount;
@@ -333,6 +338,12 @@ export class UI {
                     Storage.saveCartItem(v.cart)
                    
                 }
+            }
+            else if(target.classList.contains("fa-trash-can")){
+                target.parentElement.parentElement.parentElement.remove()
+                this.removeItem(id)
+                this.addAmount(v.cart)
+                Storage.saveCartItem(v.cart)
             }
         })
     }
@@ -343,17 +354,21 @@ export class UI {
     }
     
     removeItem(id){
-        let remove = []
-        remove = v.cart.filter()
-        
-
-        console.log(remove);
-
-
-        Storage.saveCartItem(v.cart)
-        this.addAmount(v.cart)
-
+        let removeItem = v.cart.filter(function(e){
+            return e.id != id
+        })
+        v.cart.splice(0, v.cart.length, ...removeItem)
+        let btn = this.getEachButtons(id)
+        console.log(btn);
     }
+
+    getEachButtons(id){
+        v.eachButton.find(function(e){
+            return e.id == id;
+        })
+    }
+    //set btn back to default
+
 } 
 
 export class Storage{

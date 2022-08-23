@@ -148,6 +148,10 @@ export class UI {
             btn.innerHTML = `In cart <i class="fa-solid fa-cart-shopping" style="color:black;"></i>`;
             btn.disabled = true;
         }
+        else{
+            btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`;
+            btn.disabled = false;
+        }
     }
 
     selectProduct(){
@@ -294,13 +298,19 @@ export class UI {
     }
 
     showCart(){
-        v.cartOverlay.style.display = "block"
-        v.cartSection.style.transform = "translateX(0%)"
+        v.cartOverlay.style.visibility = 'visible'
+        v.cartSection.style.display = "block"
+        setTimeout(()=>{
+            v.cartSection.classList.add("show-cart")
+        }, 300)
     }
 
     hideCart(){
-        v.cartSection.style.transform = "translateX(120%)"
-        v.cartOverlay.style.display = "none"
+        v.cartOverlay.style.visibility = 'hidden'
+        v.cartSection.classList.remove("show-cart")
+        setTimeout(()=>{
+            v.cartSection.style.display = "none"
+        }, 300)
     }
 
     populateCart(cart){
@@ -326,9 +336,9 @@ export class UI {
             }
             else if (target.classList.contains("fa-minus")){
                 let minusAmount = v.cart.find(item=>item.id == id)
-                minusAmount.amount --
-                if (minusAmount.amount === 0) {
-                    target.parentElement.parentElement.parentElement.parentElement.remove()
+                minusAmount.amount --;
+                if (minusAmount.amount < 1) {
+                    target.parentElement.parentElement.parentElement.remove()
                    this.removeItem(id)
                    this.addAmount(v.cart)
                    Storage.saveCartItem(v.cart)
@@ -352,6 +362,14 @@ export class UI {
     clearCart(){
         let cartItem = v.cart.map(item=>item.id)
         cartItem.map(id=>this.removeItem(id))
+
+        while(v.cartItems.hasChildNodes()){
+            v.cartItems.removeChild(v.cartItems.firstChild)
+        }
+        this.addAmount(v.cart)
+        Storage.saveCartItem(v.cart)
+        this.hideCart()
+        
     }
     
     removeItem(id){
@@ -360,17 +378,25 @@ export class UI {
         })
         v.cart.splice(0, v.cart.length, ...removeItem)
 
-        let btn = v.eachButton.find(function(e){
+        let buttons =  v.eachButton.find(function(e){
             return e.id = id;
         })
+        this.checkInCart(id, buttons)
 
-        if(btn){
-            btn.disabled = false
-            btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`;
-
-        }
-        // enable btn after removed from cart
+        
+        // if (btn) {
+        //     btn.disabled = false
+        //     btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`;    
+        // } else {
+        //     btn.disabled = true
+        //     btn.innerHTML = `in cart <i class="fa-solid fa-cart-shopping" style="color:black"></i>`;
+            
+        // }
+        // btn.disabled = false
+        // btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`;
+        
     }
+
 } 
 
 export class Storage{

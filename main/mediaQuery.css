@@ -2,7 +2,7 @@
    .cart{
     width: 30vw;
     min-width: 450px;
-    height: 60%;
+    height: 100%;
    }
 }
 
@@ -11,9 +11,8 @@
         font-weight: 600;
         position: absolute;
         top: -12px;
-        left: 15px;
+        left: 25px;
         color: var(--black);
-
     }
 
     .slide {

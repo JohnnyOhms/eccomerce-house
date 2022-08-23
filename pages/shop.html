@@ -19,7 +19,13 @@
                 </div>
             <nav class="navbar navbar-expand-lg bg-light" id="navbar">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html"><img src="/img/logo.png" alt=""></a>
+                    <span class="cart-icons">
+                        <div class="cart-icon">
+                            <i class="fa-solid fa-cart-shopping" id="cart-box"></i>
+                        </div>
+                        <div class="count">0</div>
+                    </span> 
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -28,12 +34,6 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <span class="cart-icons">
-                                        <div class="cart-icon">
-                                            <i class="fa-solid fa-cart-shopping" id="cart-box"></i>
-                                        </div>
-                                        <div class="count">0</div>
-                                    </span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -87,7 +87,7 @@
 
                     <div class="item-collection">
 
-            
+                        <!-- all product from contentful go in here -->
                     </div>
                 </div>
             </div>
@@ -102,12 +102,14 @@
                         <h1 style="text-align: center;">Cart Items</h1>
                 
                         <div class="cart-items">
-
+                                <!-- all cart item go in here -->
                         </div>
-                
-                        <span class="total-amount"></span><br>
-                        <div class="btn-clear">
-                            <button class="clear-all btn btn-danger mb-3">Empty cart</button>
+                        
+                        <div class="cart-footer">
+                            <span class="total-amount"></span><br>
+                            <div class="btn-clear">
+                                <button class="clear-all btn btn-danger mb-3">Empty cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,12 @@
 import * as v from "./var.js"
 import {home} from "./app1.js"
 import {LoadProduct, UI, Storage} from "./product.js"
+import { Cart } from "./cart.js";
 
 
 export const load = new LoadProduct;
 export const ui = new UI;
+export const cart = new Cart;
 window.addEventListener("DOMContentLoaded", ()=>{
 
      v.toTop.addEventListener("click", ()=>{
@@ -18,7 +20,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
     })
     })
 
-    ui.startApp()
+    // ui.startApp()
+    cart.startApp()
 
     load.getProductCloth()
     .then((data)=>{

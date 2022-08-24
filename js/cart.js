@@ -8,7 +8,7 @@ export class Cart{
     startApp(){
         v.showCart.addEventListener("click",this.showCart)
         v.closeCart.addEventListener("click",this.hideCart)
-        Storage.getCartItem()
+        StorageCart.getCartItem()
         this.cartLogic()  
     }
 
@@ -89,7 +89,7 @@ export class Cart{
                 addAmount.amount++;
                 target.nextElementSibling.innerText = addAmount.amount;
                 this.addAmount(v.cart)
-                Storage.saveCartItem(v.cart); 
+                StorageCart.saveCartItem(v.cart); 
             }
             else if (target.classList.contains("fa-minus")){
                 let minusAmount = v.cart.find(item=>item.id == id)
@@ -98,12 +98,12 @@ export class Cart{
                     target.parentElement.parentElement.parentElement.remove()
                    this.removeItem(id)
                    this.addAmount(v.cart)
-                   Storage.saveCartItem(v.cart)
+                   StorageCart.saveCartItem(v.cart)
 
                 }else{
                     target.previousElementSibling.innerText = minusAmount.amount;
                     this.addAmount(v.cart)
-                    Storage.saveCartItem(v.cart)
+                    StorageCart.saveCartItem(v.cart)
                    
                 }
             }
@@ -111,7 +111,7 @@ export class Cart{
                 target.parentElement.parentElement.parentElement.remove()
                 this.removeItem(id)
                 this.addAmount(v.cart)
-                Storage.saveCartItem(v.cart)
+                StorageCart.saveCartItem(v.cart)
             }
         })
     }
@@ -124,7 +124,7 @@ export class Cart{
             v.cartItems.removeChild(v.cartItems.firstChild)
         }
         this.addAmount(v.cart)
-        Storage.saveCartItem(v.cart)
+        StorageCart.saveCartItem(v.cart)
         this.emptyCart()
         this.hideCart()
         
@@ -138,7 +138,7 @@ export class Cart{
     }
 }
 
-class Storage{
+export class StorageCart{
     static saveCartItem(cart){
         localStorage.setItem("cart", JSON.stringify(cart))
     }

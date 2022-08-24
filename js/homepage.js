@@ -1,17 +1,11 @@
 import * as v from "./var.js"
-// import { ui } from "./app2.js"
-// import { UI } from "./product.js"
 
 export class Hompage{
-    constructor(rootEl){
-       this.rootEl = rootEl
-    }
    scrollTrack(){
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight
         var scrolled = (winScroll / height) * 100;
         v.scrollBar.style.width = scrolled + "%"
-        // this.goTop(scrolled)
    }
     shopNow(){
         window.scrollTo({
@@ -103,12 +97,7 @@ export class Hompage{
         })
    }
 
-   cartLogic(){
-
-   }
-  
 }
 
-// work example
 
 

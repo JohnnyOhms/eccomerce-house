@@ -1,5 +1,6 @@
 import { cart } from "./app1.js"
 import * as v from "./var.js"
+import { home } from "./app1.js"
 
 //  cart functionality
 
@@ -65,6 +66,7 @@ export class Cart{
         setTimeout(()=>{
             v.cartSection.classList.add("show-cart")
         }, 300)
+        setTimeout(()=>home.goTop(),1000)
     }
 
     hideCart(){
@@ -135,6 +137,13 @@ export class Cart{
             return e.id != id
         })
         v.cart.splice(0, v.cart.length, ...removeItem)
+        
+        let btns = v.eachButton.find(function(e){
+            return e.id = id
+        })
+        // btn.disabled = false;
+        // btn.innerText = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`
+        
     }
 }
 

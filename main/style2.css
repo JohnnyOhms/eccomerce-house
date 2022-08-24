@@ -8,10 +8,6 @@
     color:#db6400;
 }
 
-input[type=radio]{
-    display: none;
-}
-
 .item-collection{
     display: grid;
         grid-template-columns:

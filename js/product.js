@@ -1,6 +1,7 @@
 import * as v from "./var.js"
 import {cart, ui} from "./app2.js"
 import { StorageCart } from "./cart.js"
+import { home } from "./app1.js";
 
 
 const client = contentful.createClient({
@@ -93,29 +94,21 @@ export class UI {
         items.forEach((item)=>{
             display += `
                 <div class="items" id="${item.fliter}">
-                <div class="item">
-                        <img src="${item.image}" alt="">
-                    <h2>${item.name}</h2>
-                    <p class="price">$${item.price}</p>
-                    <button class="cart-btn" data-id="${item.id}">
-                        Add to cart
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
+                    <div class="item">
+                            <img src="${item.image}" alt="">
+                        <h2 id="name">${item.name}</h2>
+                        <p class="price">$${item.price}</p>
+                        <button class="cart-btn" data-id="${item.id}">
+                            Add to cart
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            `
+              `
         })
         v.itemCollecton.innerHTML = display;
         Storage.saveProduct(items)
     }
-
-    // startApp(){
-    //     v.showCart.addEventListener("click",this.showCart)
-    //     v.closeCart.addEventListener("click",this.hideCart)
-    //     StorageCart.getCartItem()
-    //     this.cartLogic()
-        
-    // }
 
     getButtons(){
         const btns = [...document.querySelectorAll(".cart-btn")]
@@ -162,7 +155,6 @@ export class UI {
                     rm.classList.remove("active")
                 })
                 item.className += " active"
-                // e.target.classList.add("active")
                 let fliter = e.target.dataset.fliter
                this.fliterItems(fliter)
             })
@@ -183,91 +175,34 @@ export class UI {
             }
         })
     }
-
-    searchBy(){
-
-        v.dropDown.addEventListener("click", (e)=>{
-                if(e.target.classList.contains("label-1") || e.target.classList.contains("label-2")){
-                    
-                    if (document.getElementById("firstBox").checked) {
-                        v.searchBox.setAttribute("placeholder", "search by Categories")
-                        if(v.searchBox.classList.contains("categories-search")){
-                            return;
-                        }else if(v.searchBox.classList.contains("name-search")){
-                            v.searchBox.classList.replace("name-search", "categories-search")
-                        }
-                        else{
-                            v.searchBox.className +=" categories-search"
-                        }
-                        this.categorySearch()
-                    }
-        
-                    else if (document.getElementById("secondBox").checked) {
-                        v.searchBox.setAttribute("placeholder", "search by Name")
-                        if (v.searchBox.classList.contains("name-search")) {
-                            return;
-                        }
-                        else if(v.searchBox.classList.contains("categories-search")){
-                            v.searchBox.classList.replace("categories-search", "name-search")
-                        }else{
-                            v.searchBox.className += " name-search"        
-                        }
-                        this.nameSearch()
-                    }
-                }
-        })
-    }
-
-    categorySearch(){
-        v.searchBox.addEventListener("keyup", (e)=>{
-            let value = e.target.value.toLowerCase()
-
-            let chilDren = [...v.itemCollecton.children]
-            for (let i = 0; i < chilDren.length; i++) {
-                const child = chilDren[i];
-               if (child.id.includes(value)) {
-                    child.style.display = 'block'
-               }else{
-                child.style.display = "none"
-               }
-            }
-        })
-
-    }
-
-    nameSearch(){
-        v.searchBox.addEventListener("keyup", (e)=>{
-            let value = e.target.value.toLowerCase()
-
+x
+    searchByName(){
+        v.searchBox.addEventListener("keyup",(e)=>{
+            let text = e.target.value.toLowerCase()
             
-        })
-    }
-
-    textMethode(){
-        let childrens = [...v.itemCollecton.children]
-        childrens.forEach(item=>{
-            // item.nextElementSibling;
-            let sib = item.nextElementSibling;
-            sib.forEach(name=>{
-                console.log(name.childNode);
+            let names = [...document.querySelectorAll("#name")]
+            names.forEach(item=>{
+                if (item.textContent.toLowerCase().includes(text)) {
+                        item.parentElement.parentElement.style.display = "block"
+                }else{
+                    item.parentElement.parentElement.style.display = "none"
+                }
             })
-            console.log(sib);
         })
 
-       
     }
+
 
     addToCart(item){
         let cartItem = {...item, amount: 1}
         v.cart.push(cartItem)
         StorageCart.saveCartItem(v.cart)
-        // this.addAmount(v.cart)
         cart.addAmount(v.cart)
         cart.displayCart(v.cart)
-        // this.showCart()
+        // cart.showCart()
+        setTimeout(()=>home.goTop(),1000)
+        
     }
-
-   
 } 
 
 export class Storage{
@@ -283,7 +218,5 @@ export class Storage{
         })
         ui.addToCart(item)
     }
-
-  
 }    
 

@@ -1,4 +1,6 @@
 import * as v from "./var.js"
+// import { ui } from "./app2.js"
+// import { UI } from "./product.js"
 
 export class Hompage{
     constructor(rootEl){
@@ -100,6 +102,13 @@ export class Hompage{
             behavior: 'smooth'
         })
    }
+
+   cartLogic(){
+
+   }
   
 }
+
+// work example
+
 

@@ -262,7 +262,7 @@ export class UI {
         Storage.saveCartItem(v.cart)
         this.addAmount(v.cart)
         this.displayCart(v.cart)
-        this.showCart()
+        // this.showCart()
     }
 
     addAmount(cart){
@@ -381,20 +381,11 @@ export class UI {
         let buttons =  v.eachButton.find(function(e){
             return e.id = id;
         })
-        this.checkInCart(id, buttons)
+        // this.checkInCart(id, buttons)
 
-        
-        // if (btn) {
-        //     btn.disabled = false
-        //     btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`;    
-        // } else {
-        //     btn.disabled = true
-        //     btn.innerHTML = `in cart <i class="fa-solid fa-cart-shopping" style="color:black"></i>`;
-            
-        // }
-        // btn.disabled = false
-        // btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`;
-        
+        if (buttons) {
+           buttons.innerText = 'Add to cart'
+        }
     }
 
 } 

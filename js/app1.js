@@ -1,7 +1,9 @@
 import * as v from "./var.js"
 import {Hompage} from "./homepage.js"
+import { Cart } from "./cart.js"
 
 export const home = new Hompage
+export const cart = new Cart    
 window.addEventListener("DOMContentLoaded", ()=>{
     window.addEventListener("scroll",()=>{
         home.scrollTrack()
@@ -31,4 +33,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     .then((result)=>{
         home.displayFeatured(result)
     })
+
+    cart.startApp()
+
 })

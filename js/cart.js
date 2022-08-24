@@ -15,6 +15,16 @@ export class Cart{
     populateCart(cart){
         this.addAmount(cart)
         this.displayCart(cart)
+        this.emptyCart()
+    }
+
+    emptyCart(){
+        if(v.cartItems.childNodes.length == 0){
+            let empty_cart = document.createElement("p")
+            empty_cart.setAttribute("id", "empty-cart")
+            empty_cart.innerText = "Navigate to the shop page to see avaliable products";
+            v.cartItems.appendChild(empty_cart)
+        }
     }
 
     addAmount(cart){
@@ -104,6 +114,27 @@ export class Cart{
                 Storage.saveCartItem(v.cart)
             }
         })
+    }
+
+    clearCart(){
+        let cartItem = v.cart.map(item=>item.id)
+        cartItem.map(id=>this.removeItem(id))
+
+        while(v.cartItems.hasChildNodes()){
+            v.cartItems.removeChild(v.cartItems.firstChild)
+        }
+        this.addAmount(v.cart)
+        Storage.saveCartItem(v.cart)
+        this.emptyCart()
+        this.hideCart()
+        
+    }
+
+    removeItem(id){
+        let removeItem = v.cart.filter(function(e){
+            return e.id != id
+        })
+        v.cart.splice(0, v.cart.length, ...removeItem)
     }
 }
 

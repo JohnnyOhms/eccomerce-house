@@ -292,6 +292,12 @@ body{
     margin: 0 auto;
 }
 
+#empty-cart{
+    text-align: center;
+    margin: 1.5rem auto;
+    font-size: 18px;
+}
+
 footer{
     background-image: url(/img/banner/b2.jpg);
     background-size: cover;

@@ -7,6 +7,7 @@ export class Hompage{
         var scrolled = (winScroll / height) * 100;
         v.scrollBar.style.width = scrolled + "%"
    }
+
     shopNow(){
         window.scrollTo({
             top : 0,
@@ -14,11 +15,13 @@ export class Hompage{
         })
         this.shopPage()
    }
+
    shopPage(){
         setTimeout(()=>{
             location.href = "./pages/shop.html"
         }, 1000)
    }
+
    async featuredProduct(){
     try {
         let fetchData = await fetch("./packages/featured.json")
@@ -35,6 +38,7 @@ export class Hompage{
         console.log(error);
     }
    }
+
    displayFeatured(data){
         let display = ""
         data.forEach(item => {
@@ -59,26 +63,29 @@ export class Hompage{
         });
         v.fatured_container.innerHTML = display;
    }
+
    carousel(){
        for(let i = 0; i < 1; i++){
             v.nextSlide.click();
         }
    }
+
    footerIcons(e){
             let target = e.target;
             if (target.classList.contains("fa-facebook")) {
-                location.href ='http://facebook.com/'
+                location.href = 'https://www.facebook.com/profile.php?id=100048603338804'
 
             }else if(target.classList.contains("fa-github")){
-                location.href = ''
+                location.href = 'https://github.com/JohnnyOhms'
                 
             }else if(target.classList.contains("fa-whatsapp")){
                 location.href ="http://api.whatsapp.com/send?phone=+2348142431028"
 
             }else if(target.classList.contains("fa-twitter")){
-                location.href = ''
+                location.href = 'https://twitter.com/ChinweikeJohn22?t=x-XbvshpiJSCvmfCahumWw&s=08'
             }
    }
+
    displayTopBtn(){
         let scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let topView = document.documentElement.scrollTop / scrollTotal
@@ -90,10 +97,25 @@ export class Hompage{
             v.toTop.style.opacity = "0"
         }
    }
+
    goTop(){
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
+        })
+   }
+
+   featuredProduct(){
+        const scrollBtn = document.querySelector("#see-featured")
+        const btnShop = document.querySelector(".btn-shop")
+        scrollBtn.addEventListener("click",this.scrollDown())
+        btnShop.addEventListener("click",this.scrollDown())
+   }
+
+   scrollDown(){
+        const href = this.getAttribute("href");
+        document.querySelector(href).scrollIntoView({
+            behavior : "smooth"
         })
    }
 

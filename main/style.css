@@ -249,6 +249,10 @@ body{
     transform: translateX(0);
 }
 
+#cart-box{
+    font-size: 35px;
+}
+
 .cart .cart-item {
     display: flex;
     margin: 1rem;
@@ -264,7 +268,7 @@ body{
 }
 
 .cart-item .cart-items span {
-    font-size: 20px;
+    font-size: 30px;
     color: rgb(156, 60, 60);
     cursor: pointer;
     transition: var(--transition);
@@ -272,7 +276,7 @@ body{
 
 .item-amount i{
     border: 1px solid grey;
-    font-size: 20px;
+    font-size: 30px;
     padding: 2px;
     transition: var(--transition);
     cursor: pointer;
@@ -290,12 +294,24 @@ body{
 
 .cart .btn-clear{
     margin: 0 auto;
+    
 }
 
 #empty-cart{
     text-align: center;
     margin: 1.5rem auto;
     font-size: 18px;
+}
+
+.clear-all{
+    font-size: 30px;
+}
+
+.close-cart{
+    font-size: 30px;
+    border: 2px solid rgb(156, 60, 60);
+    padding: 2rem;
+    margin: 3px;
 }
 
 footer{

@@ -139,10 +139,11 @@ export class Cart{
         v.cart.splice(0, v.cart.length, ...removeItem)
         
         let btns = v.eachButton.find(function(e){
-            return e.id = id
+            return e.dataset.id === id
         })
-        // btn.disabled = false;
-        // btn.innerText = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`
+
+        btns.disabled = false;
+        btns.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`
         
     }
 }

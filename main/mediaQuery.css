@@ -46,4 +46,30 @@
         width: 11rem;
         height: 11rem;
     }
+
+    .item-collection{
+            grid-template-columns:
+                repeat(auto-fit,
+                minmax(13rem, 1fr));
+            row-gap: 1rem;
+            column-gap: 1rem;
+            margin: 0;
+    }
+    
+    .items{
+        width: 12rem;
+
+    }
+
+    .items .item{
+        width: 11rem;
+        margin-top: 5px;
+    }
+
+    .item img{
+        margin: 0 auto;
+        width: 11rem;
+        height: 13rem;
+    }
+
 }

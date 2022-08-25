@@ -250,7 +250,7 @@ body{
 }
 
 #cart-box{
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .cart .cart-item {
@@ -268,7 +268,7 @@ body{
 }
 
 .cart-item .cart-items span {
-    font-size: 30px;
+    font-size: 25px;
     color: rgb(156, 60, 60);
     cursor: pointer;
     transition: var(--transition);
@@ -276,7 +276,7 @@ body{
 
 .item-amount i{
     border: 1px solid grey;
-    font-size: 30px;
+    font-size: 25px;
     padding: 2px;
     transition: var(--transition);
     cursor: pointer;
@@ -304,15 +304,9 @@ body{
 }
 
 .clear-all{
-    font-size: 30px;
+    font-size: 20px;
 }
 
-.close-cart{
-    font-size: 30px;
-    border: 2px solid rgb(156, 60, 60);
-    padding: 2rem;
-    margin: 3px;
-}
 
 footer{
     background-image: url(/img/banner/b2.jpg);

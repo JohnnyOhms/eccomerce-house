@@ -99,6 +99,7 @@ export class Cart{
                 if (minusAmount.amount < 1) {
                     target.parentElement.parentElement.parentElement.remove()
                    this.removeItem(id)
+                   this.enableSingleBtn(id)
                    this.addAmount(v.cart)
                    StorageCart.saveCartItem(v.cart)
 
@@ -112,6 +113,7 @@ export class Cart{
             else if(target.classList.contains("fa-trash-can")){
                 target.parentElement.parentElement.parentElement.remove()
                 this.removeItem(id)
+                this.enableSingleBtn(id)
                 this.addAmount(v.cart)
                 StorageCart.saveCartItem(v.cart)
             }
@@ -127,25 +129,41 @@ export class Cart{
         }
         this.addAmount(v.cart)
         StorageCart.saveCartItem(v.cart)
+        this.clearResetBtn()
         this.emptyCart()
         this.hideCart()
+      
         
     }
 
     removeItem(id){
+
         let removeItem = v.cart.filter(function(e){
             return e.id != id
         })
         v.cart.splice(0, v.cart.length, ...removeItem)
-        
-        let btns = v.eachButton.find(function(e){
-            return e.dataset.id === id
+        if(v.cart.length < 1){
+            this.clearCart()
+        }
+  
+    }
+
+    enableSingleBtn(id){
+        let btns = v.eachButton.find(function(item){
+            return item.dataset.id === id
         })
 
         btns.disabled = false;
         btns.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`
-        
     }
+
+    clearResetBtn(){
+        v.eachButton.forEach(btn=>{
+            btn.disabled = false;
+            btn.innerHTML = `Add to cart <i class="fa-solid fa-cart-shopping"></i>`
+        })
+    }
+
 }
 
 export class StorageCart{

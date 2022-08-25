@@ -72,4 +72,28 @@
         height: 13rem;
     }
 
+    .clear-all{
+        font-size: 30px;
+    }
+    
+    .close-cart{
+        font-size: 30px;
+        border: 2px solid rgb(156, 60, 60);
+        padding: 2rem;
+        margin: 3px;
+    }
+
+    #cart-box{
+        font-size: 35px;
+    }
+
+    
+    .cart-item .cart-items span {
+        font-size: 30px;
+    }
+
+    .item-amount i{
+        font-size: 30px;
+    }
+
 }

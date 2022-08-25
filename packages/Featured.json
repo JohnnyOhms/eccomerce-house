@@ -37,6 +37,14 @@
       "field": {
           "name": "Adidas",
           "title": "Summer customize T-shirt",
+          "image": {"fields": {"file": {"url": "./img/products/f5.jpg"}}}
+        }
+    },
+      {
+      "sys": {"id": 7},
+      "field": {
+          "name": "Adidas",
+          "title": "Summer customize T-shirt",
           "image": {"fields": {"file": {"url": "./img/products/f6.jpg"}}}
         }
     }

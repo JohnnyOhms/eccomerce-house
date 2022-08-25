@@ -199,7 +199,7 @@ x
         StorageCart.saveCartItem(v.cart)
         cart.addAmount(v.cart)
         cart.displayCart(v.cart)
-        // cart.showCart()
+        cart.showCart()
         setTimeout(()=>home.goTop(),1000)
         
     }

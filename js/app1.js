@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     })
 
     cart.startApp()
-    
-    home.featuredProduct()
+
+   home.scrollDown()
 
 })

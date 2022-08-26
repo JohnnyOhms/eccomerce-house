@@ -105,16 +105,9 @@ export class Hompage{
         })
    }
 
-   featuredProduct(){
-        const scrollBtn = document.querySelector("#see-featured")
-        const btnShop = document.querySelector(".btn-shop")
-        scrollBtn.addEventListener("click",this.scrollDown())
-        btnShop.addEventListener("click",this.scrollDown())
-   }
-
    scrollDown(){
-        const href = this.getAttribute("href");
-        document.querySelector(href).scrollIntoView({
+        const scrollBtn = document.querySelector("#see-featured")
+        scrollBtn.scrollIntoView({
             behavior : "smooth"
         })
    }

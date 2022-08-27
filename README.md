@@ -1,4 +1,5 @@
 # eccomerce-shopping
 my first vanilla Javascript website, no frame work
 
-![Vide Demo](demo.mp4)
+![Image preview](demo-1.png)
+![](demo-1.png)

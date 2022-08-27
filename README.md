@@ -12,7 +12,7 @@ cart items are stored in the browser's local storage inorder to populate the car
 
 And also, The use of #Contentful for Javascript SDK platform with content Delivery API and content Managemnt API to display data on the webpage. 🚀
 
-link https://ecommerce-house.netlify.app 👌
+link https://ecomerce-house.netlify.app 👌
 
 Image Demo of the site 😎
 ----------------------
